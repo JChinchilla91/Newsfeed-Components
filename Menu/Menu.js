@@ -8,6 +8,7 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
+console.log(menuItems)
 
 /* 
 
@@ -19,7 +20,45 @@ let menuItems = [
     </ul>
   </div>
 
-  The function takes an array as its only argument.
+  The function takes an array as its only argument. */
+  
+  const createMenu = (arr) => {
+
+    //elements
+    const menu = document.createElement('div')
+    const unorderedList = document.createElement('ul')
+    
+
+    //structure
+    menu.appendChild(unorderedList)
+
+   //add styles
+    menu.classList.add('menu')
+
+   // add content
+   arr.forEach((item) => {
+    const listItems = document.createElement('li')
+    unorderedList.appendChild(listItems)
+     listItems.textContent = item;
+   })
+
+   //menu button
+   const menuButton = document.querySelector('.menu-button')
+   console.log(menuButton)
+   
+   menuButton.addEventListener('click', () => {
+     menu.classList.toggle('menu--open')
+   })
+
+   return menu
+  
+  }
+
+  const menuComponent = document.querySelector('.header')
+
+  menuComponent.appendChild(createMenu(menuItems))
+
+  /*
 
   Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
   Add those items to the <ul>

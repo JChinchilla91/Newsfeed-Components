@@ -123,7 +123,7 @@ const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagr
   const span = document.createElement('span')
 
   //create structure
-  article.append(aTitle, aDate, first, second, third, span)
+  article.append(aTitle, aDate, span, first, second, third, )
 
   //add styles
   article.classList.add('article')
@@ -144,7 +144,7 @@ const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagr
 
   span.addEventListener('click', () => {
     article.classList.toggle('article-open')
-    article.style.transition = '1s'
+    article.style.transition = '1.5s'
   })
 
   return article
